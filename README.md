@@ -17,9 +17,8 @@ $ git --version
 #### 2. How to initialize a new Git repository?
 
 ``` bash
-$ mkdir project
+$ git init project
 $ cd project
-$ git init
 ```
 
 
@@ -43,7 +42,7 @@ $ git config --global core.editor "nano -w"
 
 #### 5. What is the staging area?
 
-The staging area is an intermediate storage whose files will be part of the
+The staging area is an intermediate storage for changes that will be part of the
 next commit.
 
 
@@ -110,7 +109,7 @@ $ git remote add <name> <url>
 #### 15. How to compare a file to the last committed version?
 
 ``` bash
-$ git diff <file>
+$ git diff HEAD -- <file>
 ```
 
 
@@ -139,14 +138,34 @@ $ git push
 #### 22. What is the difference between `git add *; git commit` and `git commit -a -m`?
 #### 23. What is the difference between `pull` and `fetch`?
 #### 24. How to make a commit from another author?
+
+```bash
+$ git commit --author "Name Surname <email@address>" ...
+```
+
 #### 25. How to create a branch?
 #### 26. How to switch to a branch?
 #### 27. How to know when a file was first added to the repository?
 #### 28. How to get a list of all deleted files?
 #### 29. How to completely remove (sensitive) files from history?
 #### 30. How to list remote repositories?
+
+```bash
+$ git remote -v
+```
+
 #### 31. How to tag a specific commit?
-#### 32. How to get a list of tag?
+
+```bash
+$ git tag -m '...' <commit>
+```
+
+#### 32. How to get a list of tags?
+
+```bash
+$ git tag
+```
+
 #### 33. How to merge 3 last commits into a single one?
 #### 34. How to get last modification for a given file?
 #### 35. How to swap branch master with another one?
@@ -154,12 +173,28 @@ $ git push
 #### 37. How to get all the commits from a specific user?
 #### 38. How to ignore the .gitignore file?
 #### 39. How to get the list of unpushed commits?
+
+```bash
+$ git log @{u}..
+```
+
 #### 40. How to compare a file across two different branches?
+
+```bash
+$ git diff <branch-a> <branch-b> -- <file>
+```
+
 #### 41. How to merge two git repositories?
 #### 42. What is the difference between HEAD and ORIG_HEAD?
 #### 43. How to use a global .gitignore?
+
+Create `~/.config/git/ignore` with a list of patterns.
+
 #### 44. What if the difference between `rm` and `git rm`?
 #### 45. How prevent a push if remote has extra commits?
+
+This is the default with `git push`, not necessary to do anything.
+
 #### 46. How to create a git alias command?
 #### 47. How to undo a pushed commit?
 #### 48. How to find the first commit?
