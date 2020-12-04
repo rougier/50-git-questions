@@ -144,10 +144,31 @@ $ git commit --author "Name Surname <email@address>" ...
 ```
 
 #### 25. How to create a branch?
+
+``` bash
+$ git branch BRANCHNAME
+```
+
 #### 26. How to switch to a branch?
+
+``` bash
+$ git checkout BRANCHNAME
+```
+
+Tip:
+
+``` bash
+$ git checkout -b BRANCHNAME
+```
+
+Will create and switch to the branch called BRANCHNAME
+
 #### 27. How to know when a file was first added to the repository?
 #### 28. How to get a list of all deleted files?
 #### 29. How to completely remove (sensitive) files from history?
+
+You can't unless you change the history
+
 #### 30. How to list remote repositories?
 
 ```bash
@@ -172,6 +193,15 @@ $ git tag
 #### 36. How to access all commits in case of problem?
 #### 37. How to get all the commits from a specific user?
 #### 38. How to ignore the .gitignore file?
+
+In the global gitignore add a line like this
+
+`.gitignore`
+
+Or in the root of a dir add a line like this
+
+`folder_where_is_its_gitignore/.gitignore`
+
 #### 39. How to get the list of unpushed commits?
 
 ```bash
@@ -185,18 +215,61 @@ $ git diff <branch-a> <branch-b> -- <file>
 ```
 
 #### 41. How to merge two git repositories?
+
+A single branch of another repository can be easily placed under a subdirectory retaining its history. For example:
+
+git subtree add --prefix=rails git://github.com/rails/rails.git master
+
+
 #### 42. What is the difference between HEAD and ORIG_HEAD?
 #### 43. How to use a global .gitignore?
 
 Create `~/.config/git/ignore` with a list of patterns.
 
 #### 44. What if the difference between `rm` and `git rm`?
+
+`git-rm` - Remove files from the working tree and from the index
+`rm` - remove files or directories
+
+
 #### 45. How prevent a push if remote has extra commits?
 
 This is the default with `git push`, not necessary to do anything.
 
+You need to do that in the remote
+ 
 #### 46. How to create a git alias command?
+
+``` bash
+$ git config --global alias.THEALIASED "WHAT_GIT_COMMAND_TO_ALIAS"
+```
+
+Note:
+If you want to alias a real command __not a git command__ you need to use ! but your shell will try to find an event so you need to use a 
+"\!echo 'Test'"
+
 #### 47. How to undo a pushed commit?
+
+[Some blog post on freecodecamp](https://www.freecodecamp.org/news/git-fetch-vs-pull/)
+
+Briefly :
+
+`git fetch` is the command that tells your local git to retrieve the latest meta-data info from the original (yet doesn’t do any file transferring. It’s more like just checking to see if there are any changes available).
+
+`git pull` on the other hand does that AND brings (copy) those changes from the remote repository.
+
 #### 48. How to find the first commit?
+
+``` bash
+git log master HEAD~ --oneline | tail -1 | awk '{ print $1 }'
+```
+
 #### 49. How to find top contributor?
+
+``` bash
+git shortlog -s -n | head -1
+```
+
+If you remove | head -1 you get all contributors
+
 #### 50. 
